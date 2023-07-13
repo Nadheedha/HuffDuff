@@ -9,4 +9,4 @@ HUFF-DUFF, is an indoor navigation app that aims to simplify and enhance the way
 
 
 Screenshots:
-![WhatsApp Image 2023-07-13 at 3 55 11 PM](https://github.com/Nadheedha/HuffDuff/assets/75275922/762d0190-6dda-49bb-bbb4-4ca6adc36fe1)
+<img width="400" height="600" alt="wayfinding" src="https://github.com/Nadheedha/HuffDuff/assets/75275922/762d0190-6dda-49bb-bbb4-4ca6adc36fe1">
