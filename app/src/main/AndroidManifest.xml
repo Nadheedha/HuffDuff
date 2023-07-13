@@ -1,0 +1,110 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mp">
+
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <!--  For geofence only  -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo1"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_maps_key" />
+        <meta-data
+            android:name="com.indooratlas.android.sdk.API_KEY"
+            android:value="@string/indooratlas_api_key" />
+        <meta-data
+            android:name="com.indooratlas.android.sdk.API_SECRET"
+            android:value="@string/indooratlas_api_secret" />
+
+        <activity
+            android:name="com.example.mp.ListExamplesActivity"
+            android:label="@string/app_name"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="http"
+                    android:host="huffduff" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.mp.simple.SimpleActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/example_simple_title" />
+        <activity
+            android:name="com.example.mp.imageview.ImageViewActivity"
+            android:label="@string/example_imageview_title"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.mp.mapsoverlay.MapsOverlayActivity"
+            android:label="@string/example_googlemaps_overlay_title"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.mp.credentials.CredentialsFromCodeActivity"
+            android:label="@string/example_credentials_title" />
+        <activity
+            android:name="com.example.mp.regions.RegionsActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/example_regions_title" />
+        <activity
+            android:name="com.example.mp.orientation.OrientationActivity"
+            android:label="@string/example_orientation_title"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.mp.geofence.GeofenceMapsOverlayActivity"
+            android:label="@string/example_googlemaps_overlay_geofencing_title"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.mp.locationsettings.LocationSettingsActivity"
+            android:label="@string/example_location_settings_title" />
+        <activity
+            android:name="com.example.mp.wayfinding.WayfindingOverlayActivity"
+            android:label="@string/example_wayfinding_title"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.example.mp.systemgeofence.MainActivity"
+            android:label="@string/example_system_geofencing_title"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name="com.example.mp.foregroundservice.ForegroundService"
+            android:exported="false"
+            android:foregroundServiceType="location" />
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.indooratlas.android.sdk.examples.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+        <receiver android:name="com.example.mp.systemgeofence.GeofenceReceiver" />
+    </application>
+</manifest>
